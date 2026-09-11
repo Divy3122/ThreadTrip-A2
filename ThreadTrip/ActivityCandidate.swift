@@ -18,4 +18,3 @@ struct ActivityCandidate: Identifiable, Codable, Equatable, Hashable {
     let suggestedDurationMinutes: Int
     let symbolName: String
 }
-

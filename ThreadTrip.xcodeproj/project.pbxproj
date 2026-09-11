@@ -17,6 +17,7 @@
 		B00000000000000000000010 /* TripOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000010 /* TripOverviewView.swift */; };
 		B00000000000000000000011 /* japan_activities.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* japan_activities.json */; };
 		B00000000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Assets.xcassets */; };
+		B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		C00000000000000000000010 /* TripOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewView.swift; sourceTree = "<group>"; };
 		C00000000000000000000011 /* japan_activities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = japan_activities.json; sourceTree = "<group>"; };
 		C00000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGroupActivityDeckUseCaseTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000014 /* ThreadTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00000000000000000000015 /* ThreadTripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreadTripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 		D0000000000000000000000F /* ThreadTripTests */ = {
 			isa = PBXGroup;
 			children = (
+				C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */,
 			);
 			path = ThreadTripTests;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

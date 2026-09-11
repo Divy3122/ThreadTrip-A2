@@ -26,4 +26,3 @@ struct GeneratedGroupActivityDeck: Equatable {
     let votingRound: TripVotingRound
     let candidates: [ActivityCandidate]
 }
-
