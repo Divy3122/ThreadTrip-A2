@@ -26,3 +26,24 @@ struct GeneratedGroupActivityDeck: Equatable {
     let votingRound: TripVotingRound
     let candidates: [ActivityCandidate]
 }
+
+enum ActivitySwipeChoice: String, Codable, Equatable {
+    case yes
+    case no
+}
+
+/// One traveller's response to one activity in a shared voting round.
+///
+/// Business Rules:
+/// - The traveller must be eligible for the voting round.
+/// - The activity must belong to the round's locked shared deck.
+/// - A traveller can respond only once to each activity.
+/// - Responses cannot be added after the round is finalised.
+struct ActivitySwipe: Identifiable, Codable, Equatable {
+    let id: UUID
+    let votingRoundID: UUID
+    let activityCandidateID: UUID
+    let memberID: UUID
+    let choice: ActivitySwipeChoice
+    let recordedAt: Date
+}

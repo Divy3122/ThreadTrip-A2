@@ -77,6 +77,11 @@ struct TripOverviewView: View {
                     Text("\(deck.candidates.count) activities · \(deck.votingRound.eligibleMemberIDs.count) travellers")
                     Text("Preferences are now locked for this voting round.")
                         .font(.footnote)
+                    if let voting = viewModel.voting {
+                        NavigationLink("Open activity voting") {
+                            GroupSwipeDeckView(viewModel: voting)
+                        }
+                    }
                 } else {
                     Button("Generate shared activity deck", systemImage: "sparkles") {
                         viewModel.generateSharedDeck()
