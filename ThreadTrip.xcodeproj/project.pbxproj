@@ -14,6 +14,8 @@
 		45B4DCDE305505AF00D566F6 /* ArrangeTripItineraryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCDD305505AD00D566F6 /* ArrangeTripItineraryUseCase.swift */; };
 		45B4DCE0305505CF00D566F6 /* SharedItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCDF305505C600D566F6 /* SharedItineraryViewModel.swift */; };
 		45B4DCE2305505E200D566F6 /* SharedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCE1305505E100D566F6 /* SharedItineraryView.swift */; };
+		45B4DCE430554BC600D566F6 /* BuildGroupDecisionDashboardUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCE330554BB900D566F6 /* BuildGroupDecisionDashboardUseCaseTests.swift */; };
+		45B4DCE630554BEA00D566F6 /* ArrangeTripItineraryUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCE530554BE100D566F6 /* ArrangeTripItineraryUseCaseTests.swift */; };
 		B00000000000000000000001 /* ThreadTripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* ThreadTripApp.swift */; };
 		B00000000000000000000007 /* GroupTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* GroupTrip.swift */; };
 		B00000000000000000000008 /* ActivityCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* ActivityCandidate.swift */; };
@@ -49,6 +51,8 @@
 		45B4DCDD305505AD00D566F6 /* ArrangeTripItineraryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeTripItineraryUseCase.swift; sourceTree = "<group>"; };
 		45B4DCDF305505C600D566F6 /* SharedItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItineraryViewModel.swift; sourceTree = "<group>"; };
 		45B4DCE1305505E100D566F6 /* SharedItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedItineraryView.swift; sourceTree = "<group>"; };
+		45B4DCE330554BB900D566F6 /* BuildGroupDecisionDashboardUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupDecisionDashboardUseCaseTests.swift; sourceTree = "<group>"; };
+		45B4DCE530554BE100D566F6 /* ArrangeTripItineraryUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeTripItineraryUseCaseTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000001 /* ThreadTripApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadTripApp.swift; sourceTree = "<group>"; };
 		C00000000000000000000007 /* GroupTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTrip.swift; sourceTree = "<group>"; };
 		C00000000000000000000008 /* ActivityCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCandidate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */,
 				C0000000000000000000001A /* RecordActivitySwipeUseCaseTests.swift */,
+				45B4DCE330554BB900D566F6 /* BuildGroupDecisionDashboardUseCaseTests.swift */,
+				45B4DCE530554BE100D566F6 /* ArrangeTripItineraryUseCaseTests.swift */,
 			);
 			path = ThreadTripTests;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */,
+				45B4DCE430554BC600D566F6 /* BuildGroupDecisionDashboardUseCaseTests.swift in Sources */,
 				B00000000000000000000018 /* RecordActivitySwipeUseCaseTests.swift in Sources */,
+				45B4DCE630554BEA00D566F6 /* ArrangeTripItineraryUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

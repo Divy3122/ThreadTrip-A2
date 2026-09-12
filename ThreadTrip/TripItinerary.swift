@@ -31,7 +31,12 @@ struct ScheduledTripActivity: Identifiable, Equatable {
     }
 }
 
-/// Shared timing rules used by the itinerary planner.
+/// Defines the shared scheduling rules used by the group itinerary.
+///
+/// Business Rules:
+/// - Activities can be planned between 6:00 am and 11:00 pm.
+/// - Activity start times and durations use 30-minute blocks.
+/// - Every scheduled activity must last at least 30 minutes.
 enum TripItineraryRules {
 
     static let dayStartMinutes = 6 * 60

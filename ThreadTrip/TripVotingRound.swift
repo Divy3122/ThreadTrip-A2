@@ -1,5 +1,10 @@
 import Foundation
 
+/// Represents whether a group voting round can still accept activity responses.
+///
+/// Business Rules:
+/// - An open round can accept responses from eligible travellers.
+/// - A finalised round cannot accept any new responses.
 enum VotingRoundStatus: String, Codable {
     case open
     case finalised
@@ -21,18 +26,24 @@ struct TripVotingRound: Identifiable, Codable, Equatable {
     var status: VotingRoundStatus
 }
 
-/// The complete result of generating a locked activity deck for a group.
+/// Represents the shared set of travel activities generated for one group voting round.
+///
+/// Business Rules:
+/// - Every eligible traveller receives the same activity candidates.
+/// - Candidate order remains fixed throughout the voting round.
+/// - The candidate IDs must match those stored in the associated voting round.
 struct GeneratedGroupActivityDeck: Equatable {
     let votingRound: TripVotingRound
     let candidates: [ActivityCandidate]
 }
 
+/// Represents a traveller's Yes or No decision for an activity.
 enum ActivitySwipeChoice: String, Codable, Equatable {
     case yes
     case no
 }
 
-/// One traveller's response to one activity in a shared voting round.
+/// Represents one traveller's response to one activity in a shared voting round.
 ///
 /// Business Rules:
 /// - The traveller must be eligible for the voting round.
@@ -48,7 +59,6 @@ struct ActivitySwipe: Identifiable, Codable, Equatable {
     let recordedAt: Date
 }
 
-
 /// Represents the group's complete decision for one activity in a locked voting round.
 ///
 /// Business Rules:
@@ -63,10 +73,14 @@ struct GroupActivityDecision: Identifiable, Equatable {
     let eligibleTravellerCount: Int
     let isAccepted: Bool
 
-    var id: UUID { activity.id }
+    var id: UUID {
+        activity.id
+    }
 
     var yesSupportFraction: Double {
-        guard eligibleTravellerCount > 0 else { return 0 }
+        guard eligibleTravellerCount > 0 else {
+            return 0
+        }
 
         return Double(yesVoteCount) / Double(eligibleTravellerCount)
     }
