@@ -10,7 +10,7 @@ This is a simplified rebuild of the [original ThreadTrip prototype](https://gith
 | --- | --- | --- |
 | 1. Trip Overview | Set group interests, activity budget and decision rule; generate a locked deck | Implemented |
 | 2. Activity Voting | Each traveller votes Yes or No on the identical ordered deck | Implemented |
-| 3. Group Decision Dashboard | Show every activity and its complete Yes/No counts for one round | Next |
+| 3. Group Decision Dashboard | Show every activity and its complete Yes/No counts for one round | Implemented |
 | 4. Shared Itinerary | Schedule accepted activities | Planned |
 
 The current prototype stores votes in memory. Returning to the overview or changing travellers preserves them; closing the app starts a new session. The traveller selector demonstrates group voting on one device, without pretending to provide authentication or online synchronisation.
