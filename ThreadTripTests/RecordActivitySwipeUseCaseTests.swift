@@ -1,3 +1,10 @@
+//
+//  ArrangeTripItineraryUseCaseTests.swift
+//  ThreadTrip
+//
+//  Created by Divy Patel on 12/9/2026.
+//
+
 import Foundation
 import Testing
 @testable import ThreadTrip
