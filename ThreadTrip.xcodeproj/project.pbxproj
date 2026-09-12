@@ -18,6 +18,10 @@
 		B00000000000000000000011 /* japan_activities.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* japan_activities.json */; };
 		B00000000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Assets.xcassets */; };
 		B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */; };
+		B00000000000000000000015 /* RecordActivitySwipeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000017 /* RecordActivitySwipeUseCase.swift */; };
+		B00000000000000000000016 /* GroupSwipeDeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000018 /* GroupSwipeDeckViewModel.swift */; };
+		B00000000000000000000017 /* GroupSwipeDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000019 /* GroupSwipeDeckView.swift */; };
+		B00000000000000000000018 /* RecordActivitySwipeUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000001A /* RecordActivitySwipeUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGroupActivityDeckUseCaseTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000014 /* ThreadTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00000000000000000000015 /* ThreadTripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreadTripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00000000000000000000017 /* RecordActivitySwipeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordActivitySwipeUseCase.swift; sourceTree = "<group>"; };
+		C00000000000000000000018 /* GroupSwipeDeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSwipeDeckViewModel.swift; sourceTree = "<group>"; };
+		C00000000000000000000019 /* GroupSwipeDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSwipeDeckView.swift; sourceTree = "<group>"; };
+		C0000000000000000000001A /* RecordActivitySwipeUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordActivitySwipeUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +87,14 @@
 				C00000000000000000000001 /* ThreadTripApp.swift */,
 				C00000000000000000000010 /* TripOverviewView.swift */,
 				C0000000000000000000000F /* TripOverviewViewModel.swift */,
+				C00000000000000000000019 /* GroupSwipeDeckView.swift */,
+				C00000000000000000000018 /* GroupSwipeDeckViewModel.swift */,
 				C00000000000000000000007 /* GroupTrip.swift */,
 				C00000000000000000000008 /* ActivityCandidate.swift */,
 				C00000000000000000000009 /* TripVotingRound.swift */,
 				C0000000000000000000000A /* TravelActivityCatalogue.swift */,
 				C0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift */,
+				C00000000000000000000017 /* RecordActivitySwipeUseCase.swift */,
 				C00000000000000000000012 /* Assets.xcassets */,
 				C00000000000000000000011 /* japan_activities.json */,
 			);
@@ -94,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */,
+				C0000000000000000000001A /* RecordActivitySwipeUseCaseTests.swift */,
 			);
 			path = ThreadTripTests;
 			sourceTree = "<group>";
@@ -215,6 +227,9 @@
 				B0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift in Sources */,
 				B0000000000000000000000F /* TripOverviewViewModel.swift in Sources */,
 				B00000000000000000000010 /* TripOverviewView.swift in Sources */,
+				B00000000000000000000015 /* RecordActivitySwipeUseCase.swift in Sources */,
+				B00000000000000000000016 /* GroupSwipeDeckViewModel.swift in Sources */,
+				B00000000000000000000017 /* GroupSwipeDeckView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */,
+				B00000000000000000000018 /* RecordActivitySwipeUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

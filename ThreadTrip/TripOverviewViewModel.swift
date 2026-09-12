@@ -5,6 +5,7 @@ import Foundation
 final class TripOverviewViewModel: ObservableObject {
     @Published private(set) var trip: GroupTrip
     @Published private(set) var generatedDeck: GeneratedGroupActivityDeck?
+    @Published private(set) var voting: GroupSwipeDeckViewModel?
     @Published private(set) var errorMessage: String?
 
     private let generateGroupActivityDeck: GenerateGroupActivityDeckUseCase
@@ -89,6 +90,9 @@ final class TripOverviewViewModel: ObservableObject {
                 for: trip,
                 existingVotingRound: generatedDeck?.votingRound
             )
+            if let generatedDeck {
+                voting = GroupSwipeDeckViewModel(deck: generatedDeck, members: trip.members)
+            }
         } catch let error as GenerateGroupActivityDeckError {
             errorMessage = error.localizedDescription
         } catch {
