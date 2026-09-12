@@ -141,7 +141,7 @@ extension GroupDecisionPolicy: GroupDecisionEvaluating {
 }
 
 
-/// Local six-traveller Japan trip used by the prototype.
+/// Local three-traveller Japan trip used by the prototype.
 enum JapanTripSample {
     static let japanTrip = GroupTrip(
         id: UUID(uuidString: "10000000-0000-0000-0000-000000000001")!,
