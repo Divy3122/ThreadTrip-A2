@@ -126,6 +126,82 @@ struct ArrangeTripItineraryUseCaseTests {
         }
     }
 
+    
+    
+    @Test
+    func itinerary_rejectsActivityAlreadyScheduled() throws {
+        let trip = JapanTripSample.japanTrip
+        let activity = makeActivity(title: "Tokyo Food Tour")
+
+        let useCase = ArrangeTripItineraryUseCase()
+
+        let scheduled = try useCase.schedule(
+            activity: activity,
+            acceptedActivityIDs: Set([activity.id]),
+            date: trip.startDate,
+            startMinutes: 9 * 60,
+            trip: trip,
+            existingActivities: []
+        )
+
+        #expect(
+            throws: ArrangeTripItineraryError.activityAlreadyScheduled
+        ) {
+            try useCase.schedule(
+                activity: activity,
+                acceptedActivityIDs: Set([activity.id]),
+                date: trip.startDate,
+                startMinutes: 12 * 60,
+                trip: trip,
+                existingActivities: [scheduled]
+            )
+        }
+    }
+
+    @Test
+    func itinerary_rejectsDateOutsideTrip() {
+        let trip = JapanTripSample.japanTrip
+        let activity = makeActivity(title: "Tokyo Activity")
+
+        let outsideDate = Calendar.current.date(
+            byAdding: .day,
+            value: -1,
+            to: trip.startDate
+        )!
+
+        #expect(
+            throws: ArrangeTripItineraryError.dateOutsideTrip
+        ) {
+            try ArrangeTripItineraryUseCase().schedule(
+                activity: activity,
+                acceptedActivityIDs: Set([activity.id]),
+                date: outsideDate,
+                startMinutes: 9 * 60,
+                trip: trip,
+                existingActivities: []
+            )
+        }
+    }
+
+    @Test
+    func itinerary_rejectsTimeOutsidePlanningDay() {
+        let trip = JapanTripSample.japanTrip
+        let activity = makeActivity(title: "Early Activity")
+
+        #expect(
+            throws: ArrangeTripItineraryError.timeOutsidePlanningDay
+        ) {
+            try ArrangeTripItineraryUseCase().schedule(
+                activity: activity,
+                acceptedActivityIDs: Set([activity.id]),
+                date: trip.startDate,
+                startMinutes: 5 * 60 + 30,
+                trip: trip,
+                existingActivities: []
+            )
+        }
+    }
+    
     private func makeActivity(
         title: String,
         durationMinutes: Int = 60

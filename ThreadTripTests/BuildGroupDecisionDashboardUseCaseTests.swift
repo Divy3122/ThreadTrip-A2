@@ -138,6 +138,78 @@ struct BuildGroupDecisionDashboardUseCaseTests {
         #expect(decisions.allSatisfy { $0.isAccepted })
     }
 
+    @Test
+    func dashboard_rejectsChangedLockedDeck() {
+        let setup = makeSetup()
+
+        let changedDeck = GeneratedGroupActivityDeck(
+            votingRound: setup.round,
+            candidates: [setup.activities[0]]
+        )
+
+        #expect(
+            throws: BuildGroupDecisionDashboardError.lockedDeckChanged
+        ) {
+            try BuildGroupDecisionDashboardUseCase().execute(
+                deck: changedDeck,
+                swipes: [],
+                decisionPolicy: .simpleMajority
+            )
+        }
+    }
+
+    @Test
+    func dashboard_rejectsResponseFromTravellerOutsideRound() {
+        let setup = makeSetup()
+
+        let invalidSwipe = makeSwipe(
+            roundID: setup.round.id,
+            candidateID: setup.activities[0].id,
+            memberID: UUID(),
+            choice: .yes
+        )
+
+        #expect(
+            throws: BuildGroupDecisionDashboardError.responseOutsideLockedRound
+        ) {
+            try BuildGroupDecisionDashboardUseCase().execute(
+                deck: setup.deck,
+                swipes: [invalidSwipe],
+                decisionPolicy: .simpleMajority
+            )
+        }
+    }
+
+    @Test
+    func dashboard_rejectsDuplicateTravellerResponse() {
+        let setup = makeSetup()
+
+        let firstSwipe = makeSwipe(
+            roundID: setup.round.id,
+            candidateID: setup.activities[0].id,
+            memberID: setup.memberIDs[0],
+            choice: .yes
+        )
+
+        let duplicateSwipe = makeSwipe(
+            roundID: setup.round.id,
+            candidateID: setup.activities[0].id,
+            memberID: setup.memberIDs[0],
+            choice: .no
+        )
+
+        #expect(
+            throws: BuildGroupDecisionDashboardError.duplicateTravellerResponse
+        ) {
+            try BuildGroupDecisionDashboardUseCase().execute(
+                deck: setup.deck,
+                swipes: [firstSwipe, duplicateSwipe],
+                decisionPolicy: .simpleMajority
+            )
+        }
+    }
+    
+    
     private func makeSetup() -> (
         activities: [ActivityCandidate],
         memberIDs: [UUID],
