@@ -1,8 +1,8 @@
 # ThreadTrip — Assignment 2
 
-ThreadTrip helps six friends turn scattered Instagram and TikTok travel ideas into a shared Japan trip plan across Tokyo, Kyoto and Osaka. The prototype uses a bundled activity catalogue instead of a social-media API.
+ThreadTrip helps a group of friends turn scattered Instagram and TikTok travel ideas into a shared Japan trip plan across Tokyo, Kyoto and Osaka. The prototype uses a bundled activity catalogue instead of a social-media API.
 
-This is a simplified rebuild of the [original ThreadTrip prototype](https://github.com/Divy3122/ThreadTrip). The history records this rebuild, with separate stages for Screens 1 and 2. The original repository has not been deleted or rewritten.
+This is a simplified rebuild of the original ThreadTrip prototype. The project is being developed screen by screen so the Git history shows the progression from trip setup, to voting, to group decisions, and finally itinerary planning.
 
 ## Current progress
 
@@ -10,55 +10,159 @@ This is a simplified rebuild of the [original ThreadTrip prototype](https://gith
 | --- | --- | --- |
 | 1. Trip Overview | Set group interests, activity budget and decision rule; generate a locked deck | Implemented |
 | 2. Activity Voting | Each traveller votes Yes or No on the identical ordered deck | Implemented |
-| 3. Group Decision Dashboard | Show every activity and its complete Yes/No counts for one round | Next |
-| 4. Shared Itinerary | Schedule accepted activities | Planned |
+| 3. Group Decision Dashboard | Show every activity with complete Yes/No results and determine what made the cut | Implemented |
+| 4. Shared Itinerary | Schedule accepted activities into the trip | Planned |
 
-The current prototype stores votes in memory. Returning to the overview or changing travellers preserves them; closing the app starts a new session. The traveller selector demonstrates group voting on one device, without pretending to provide authentication or online synchronisation.
+The current prototype stores trip and voting state in memory. The traveller selector allows the group voting flow to be demonstrated on one device without pretending to provide authentication or online synchronisation.
 
 ## Open and run
 
-1. Clone this repository and check out `feature/activity-voting` to see both screens while the feature branches await integration.
-2. Open `ThreadTrip.xcodeproj` in Xcode 16 or newer.
-3. Select the **ThreadTrip** scheme and an iPhone simulator running iOS 17 or newer.
-4. Use **Command-R** to run and **Command-U** to test.
+1. Clone the repository.
+2. Check out `feature/03-group-decision-dashboard` to view the Screen 3 milestone.
+3. Open `ThreadTrip.xcodeproj` in Xcode.
+4. Select the ThreadTrip scheme and an iPhone simulator.
+5. Use Command-R to run and Command-U to run tests.
 
 There are no external package dependencies. The app reads `japan_activities.json` from its bundle.
 
-## Screen 1 — complete walkthrough
+## Screen 1 — Trip Overview
 
-1. Open ThreadTrip. The overview shows the Japan dates, three cities, trip budget and six travellers.
-2. Choose the group's shared interests. These preferences apply to everyone.
-3. Set the maximum activity cost per traveller, from AUD 25 to AUD 300.
-4. Choose the acceptance rule: majority, 75% Yes, or everyone. This is stored for the future dashboard.
-5. Tap **Generate shared activity deck**.
-6. The app validates the trip, loads matching activities from JSON, removes duplicate IDs, sorts by city/title and takes up to twelve activities. At least six matches are required.
-7. A `TripVotingRound` locks the candidate IDs, their order and eligible traveller IDs. The preferences become read-only.
-8. Tap **Open activity voting** to continue to Screen 2.
+Screen 1 creates the shared context that controls the rest of the trip planning flow.
 
-If no interests are selected, the app explains what to change. If fewer than six activities match, increase the activity budget or select another interest and try again. A failed attempt does not replace an existing deck.
+1. The overview displays the Japan trip dates, destinations, travellers and trip budget.
+2. The group chooses shared travel interests.
+3. A maximum activity cost per traveller is selected.
+4. The group chooses an acceptance rule:
+   - Majority
+   - 75% Yes
+   - Everyone
+5. The user generates the shared activity deck.
+6. Matching activities are loaded from the bundled JSON catalogue.
+7. Duplicate activity IDs are rejected and suitable activities are placed into a consistent order.
+8. A `TripVotingRound` locks the activity IDs, their order and the eligible travellers.
+9. Once the deck is created, the group can continue to Activity Voting.
 
-**Code path:** `TripOverviewView` → `TripOverviewViewModel` → `GenerateGroupActivityDeckUseCase` → `TravelActivityCatalogue` → `GeneratedGroupActivityDeck`.
+The locked round is important because every traveller must receive the same activity choices in the same order.
 
-## Screen 2 — complete walkthrough
+**Code path:**  
+`TripOverviewView` → `TripOverviewViewModel` → `GenerateGroupActivityDeckUseCase` → `TravelActivityCatalogue` → `GeneratedGroupActivityDeck`
 
-1. The voting screen opens with the exact deck generated on Screen 1.
-2. Check **Voting as** before responding. The selector is a local prototype control for trying each traveller's experience.
-3. Review the activity's description, city, category, estimated cost and duration.
-4. Swipe right or tap **Yes**. Swipe left or tap **No**. A short drag records nothing.
-5. Each valid response advances to that traveller's next unanswered activity.
-6. Switch travellers: they start with the same first activity and follow the same order. Return to the first traveller to resume where they stopped.
-7. Return to the overview and reopen voting: the same ViewModel retains the group's responses.
-8. After finishing the deck, see that traveller's Yes/No totals and how many travellers have finished. Repeat for all six travellers.
+## Screen 2 — Activity Voting
 
-Every `ActivitySwipe` carries its voting-round ID, activity ID and member ID. The recording Use Case rejects duplicate responses, ineligible travellers, activities outside the deck and finalised rounds. It does not confuse a vote from an earlier round with a duplicate in the current one.
+Screen 2 lets each eligible traveller respond to the same locked activity deck.
 
-The future dashboard must count only votes belonging to this locked round, include every candidate, and distinguish missing votes from No votes. It has not been implemented in this milestone.
+1. The activity voting screen opens using the exact deck generated on Screen 1.
+2. The local traveller selector changes which group member is currently voting.
+3. Each activity displays its title, city, category, cost, duration and description.
+4. A traveller can swipe right or tap Yes.
+5. A traveller can swipe left or tap No.
+6. A valid response advances to that traveller's next unanswered activity.
+7. Switching travellers does not change the activity deck or its order.
+8. Returning to a traveller resumes their remaining activities.
+9. The screen tracks each traveller's Yes and No totals.
+10. The group can only continue once every eligible traveller has completed the voting round.
 
-**Code path:** `GroupSwipeDeckView` → `GroupSwipeDeckViewModel` → `RecordActivitySwipeUseCase` → `ActivitySwipe`.
+Each `ActivitySwipe` records the voting round, activity, traveller and Yes/No choice.
 
-## Small, flat file structure
+The recording Use Case prevents duplicate responses, votes from ineligible travellers, responses for activities outside the locked deck and responses after a round has been finalised.
 
-There are **11 app Swift files**, reduced from 20 in the original prototype. Related domain types share a file; business operations and screen responsibilities remain distinct.
+**Code path:**  
+`GroupSwipeDeckView` → `GroupSwipeDeckViewModel` → `RecordActivitySwipeUseCase` → `ActivitySwipe`
+
+## Screen 3 — Group Decision Dashboard
+
+Screen 3 turns the completed voting round into one group result.
+
+The dashboard is not built from a new set of activities. It must use the exact locked deck created on Screen 1 and voted on during Screen 2.
+
+1. Every eligible traveller must finish voting before the dashboard can be prepared.
+2. Only responses belonging to the current voting round are counted.
+3. Every activity from the locked deck is shown in the original order.
+4. Each activity displays:
+   - Yes vote count
+   - No vote count
+   - Number of eligible travellers
+   - Group support percentage
+   - Whether the activity made the cut
+5. The dashboard displays the group's selected decision rule.
+6. That decision rule determines whether each activity is accepted.
+7. A summary shows how many activities were accepted and rejected.
+8. Accepted activities become the activities available to the future shared itinerary.
+
+The dashboard deliberately does not treat a missing response as a No vote. If voting is incomplete, the result is rejected instead of creating an inaccurate total.
+
+The dashboard also rejects invalid group result data when:
+
+- the locked activity deck has changed,
+- a response belongs to a different traveller or activity,
+- a traveller has more than one response for the same activity,
+- or the required voting responses are incomplete.
+
+Votes from a previous or different voting round are ignored rather than being mixed into the current result.
+
+This keeps the decision dashboard tied to one specific shared voting round.
+
+**Code path:**  
+`GroupDecisionDashboardView` → `GroupDecisionDashboardViewModel` → `BuildGroupDecisionDashboardUseCase` → `GroupActivityDecision`
+
+## Group decision rules
+
+The group chooses its decision policy before the shared activity deck is generated.
+
+The same policy is later applied by the Group Decision Dashboard.
+
+### Majority
+
+More than half of eligible travellers must vote Yes.
+
+### 75% Yes
+
+At least 75% of eligible travellers must vote Yes.
+
+### Everyone
+
+Every eligible traveller must vote Yes.
+
+Keeping the decision rule inside the domain model means the dashboard does not contain its own separate interpretation of how an activity should be accepted.
+
+## Domain-centred architecture
+
+ThreadTrip separates interface code from travel-domain rules.
+
+### Domain models
+
+The main domain types represent concepts from collaborative trip planning rather than technical storage concepts.
+
+Examples include:
+
+- `GroupTrip`
+- `TripMember`
+- `TravelTasteProfile`
+- `ActivityCandidate`
+- `TripVotingRound`
+- `ActivitySwipe`
+- `GroupActivityDecision`
+- `GroupDecisionPolicy`
+
+### ViewModels
+
+Each major screen owns a ViewModel that manages presentation state and calls the appropriate domain operation.
+
+- `TripOverviewViewModel`
+- `GroupSwipeDeckViewModel`
+- `GroupDecisionDashboardViewModel`
+
+### Use Cases
+
+Business operations are separated from SwiftUI views.
+
+- `GenerateGroupActivityDeckUseCase`
+- `RecordActivitySwipeUseCase`
+- `BuildGroupDecisionDashboardUseCase`
+
+This keeps rules such as locked voting rounds, duplicate-response prevention and decision thresholds outside the interface layer.
+
+## File structure
 
 ```text
 ThreadTrip-A2/
@@ -71,53 +175,20 @@ ThreadTrip-A2/
 │   ├── ActivityCandidate.swift
 │   ├── TripVotingRound.swift
 │   ├── TravelActivityCatalogue.swift
+│   │
 │   ├── GenerateGroupActivityDeckUseCase.swift
 │   ├── RecordActivitySwipeUseCase.swift
+│   ├── BuildGroupDecisionDashboardUseCase.swift
+│   │
 │   ├── TripOverviewViewModel.swift
-│   ├── TripOverviewView.swift
 │   ├── GroupSwipeDeckViewModel.swift
+│   ├── GroupDecisionDashboardViewModel.swift
+│   │
+│   ├── TripOverviewView.swift
 │   ├── GroupSwipeDeckView.swift
+│   ├── GroupDecisionDashboardView.swift
+│   │
 │   ├── japan_activities.json
 │   └── Assets.xcassets/
+│
 └── ThreadTripTests/
-    ├── GenerateGroupActivityDeckUseCaseTests.swift
-    └── RecordActivitySwipeUseCaseTests.swift
-```
-
-- `GroupTrip.swift` contains the trip, members, interests, preferences, decision policy and sample Japan trip.
-- `TripVotingRound.swift` contains the locked round, generated deck and individual swipe types.
-- `TravelActivityCatalogue.swift` contains the catalogue protocol and its local JSON implementation.
-- Each screen has one View and one ViewModel. Small layout elements stay in their screen file.
-- Each Use Case keeps its typed domain errors in the same file.
-
-## Why this meets the architecture brief
-
-Views display state and receive gestures. ViewModels hold shared screen state and call Use Cases. Use Cases protect business rules. Domain structs describe travel concepts and document their rules with DocC comments.
-
-The catalogue protocol describes a real domain behaviour: finding suitable travel activities. It also lets tests substitute a small catalogue without reading JSON. Domain records use structs; ViewModels use classes because SwiftUI screens share mutable state. No inheritance hierarchy is needed for this problem.
-
-**Still required for the full assignment:** the dashboard and itinerary, at least one additional Use Case with happy/failure tests, the one-page human-system architecture diagram and the 600–800 word reflective report. Two working screens alone do not complete the assignment.
-
-## Development process on GitHub
-
-Read the [commit history](https://github.com/Divy3122/ThreadTrip-A2/commits/feature/activity-voting) in chronological order:
-
-1. `chore: start simplified ThreadTrip assignment project` — runnable app shell, Xcode configuration and brief.
-2. `feat: build trip overview and lock a shared Japan activity deck` — Screen 1 and its domain operation.
-3. `test: verify shared deck rules and locked trip preferences` — Screen 1 business-rule coverage.
-4. `feat: add activity voting with shared round state for every traveller` — Screen 2 and retained group responses.
-5. `test: cover traveller switching and voting round isolation` — Screen 2 business-rule coverage.
-6. `docs: explain both screen workflows and simplified architecture` — this walkthrough and validation notes.
-
-The screen branches are [feature/trip-overview](https://github.com/Divy3122/ThreadTrip-A2/tree/feature/trip-overview) and [feature/activity-voting](https://github.com/Divy3122/ThreadTrip-A2/tree/feature/activity-voting). Screen 2 is temporarily stacked on Screen 1 while merge approval is pending. Both trace back to `develop`; `main` retains the built app shell until a tested milestone is approved for integration. No merges or force-pushes have been made.
-
-## Validation
-
-Checked with Xcode 26.2 and the iPhone 17 Pro / iOS 26.2 simulator:
-
-- Initial app shell: build passed.
-- Screen 1: build passed; 10 Swift Testing tests passed.
-- Screen 2: build passed; full suite covers 20 tests across both Use Cases and their ViewModels.
-- Tests cover all four swipe errors, shared deck order for all travellers, traveller switching, round isolation, retained votes, locked preferences and catalogue/trip validation.
-
-Manual UI interaction has **not** been verified by the agent because Computer Use permissions were unavailable. Use the two walkthroughs above to check drag gestures, navigation, text sizing and appearance in Xcode's simulator before merging.
