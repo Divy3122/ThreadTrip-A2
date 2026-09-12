@@ -20,22 +20,40 @@ enum ArrangeTripItineraryError: LocalizedError, Equatable {
         switch self {
 
         case .activityWasNotAccepted:
-            return "Only activities that made the cut can be added to the itinerary."
+            return """
+            Only activities that made the cut can be added to the itinerary. \
+            Choose an accepted activity from the group results.
+            """
 
         case .activityAlreadyScheduled:
-            return "This activity is already in the itinerary."
+            return """
+            This activity is already in the itinerary. \
+            Move or remove the existing activity before placing it again.
+            """
 
         case .dateOutsideTrip:
-            return "Activities must be scheduled during the trip."
+            return """
+            Activities can only be scheduled on a trip date. \
+            Choose one of the dates shown in the itinerary.
+            """
 
         case .timeOutsidePlanningDay:
-            return "This activity does not fit inside the selected day."
+            return """
+            Activities must fit between 6:00 am and 11:00 pm. \
+            Choose an earlier time or shorten the activity.
+            """
 
         case .invalidTimeBlock:
-            return "Activities must use 30-minute time blocks."
+            return """
+            The itinerary uses 30-minute time blocks. \
+            Choose a time and duration that falls on a 30-minute interval.
+            """
 
         case .overlappingActivity:
-            return "That time overlaps with another activity. Try another time."
+            return """
+            That time overlaps with another activity. \
+            Choose another time or move the activity already scheduled there.
+            """
         }
     }
 }
