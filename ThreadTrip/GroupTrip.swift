@@ -45,7 +45,12 @@ struct TripMember: Identifiable, Codable, Equatable, Hashable {
     var isActive: Bool
 }
 
-/// A travel interest used to shape the group's shared activity deck.
+/// Represents an activity interest shared by the travel group.
+///
+/// Business Rules:
+/// - At least one interest must be selected before generating a shared deck.
+/// - Only activities matching one of the selected interests are eligible for the deck.
+/// - Interests apply to the whole group rather than individual travellers.
 enum TravelInterest: String, Codable, CaseIterable, Identifiable {
     case food
     case culture
@@ -86,7 +91,13 @@ struct TravelTasteProfile: Codable, Equatable {
     let currencyCode: String
 }
 
-/// The threshold a travel group chooses for accepting an activity.
+/// Represents the voting threshold a group uses to accept an activity.
+///
+/// Business Rules:
+/// - One decision policy applies to the whole voting round.
+/// - Majority requires more than half of eligible travellers to vote Yes.
+/// - The 75% policy requires at least three quarters of eligible travellers to vote Yes.
+/// - Unanimous requires every eligible traveller to vote Yes.
 enum GroupDecisionPolicy: String, Codable, CaseIterable, Identifiable {
     case simpleMajority
     case seventyFivePercent
