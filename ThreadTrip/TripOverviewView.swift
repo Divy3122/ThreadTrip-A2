@@ -438,7 +438,9 @@ struct TripOverviewView: View {
                     NavigationLink {
                         GroupSwipeDeckView(
                             viewModel: voting,
+                            trip: viewModel.trip,
                             decisionPolicy: viewModel.trip.decisionPolicy
+                            
                         )
                     } label: {
                         actionLabel(

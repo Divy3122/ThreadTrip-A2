@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GroupDecisionDashboardView: View {
+    let trip: GroupTrip
+
 
     @ObservedObject var viewModel: GroupDecisionDashboardViewModel
 
@@ -488,41 +490,51 @@ struct GroupDecisionDashboardView: View {
     // MARK: - Next Step
 
     private var nextStepCard: some View {
-        VStack(
-            alignment: .leading,
-            spacing: 8
-        ) {
+        NavigationLink {
 
-            Label(
-                "Next: build the shared itinerary",
-                systemImage:
-                    "calendar.badge.plus"
+            SharedItineraryView(
+                trip: trip,
+                decisions: viewModel.decisions
             )
-            .font(.headline)
 
-            Text(
-                "The activities your group accepted can now be organised across Tokyo, Kyoto and Osaka."
+        } label: {
+
+            VStack(alignment: .leading, spacing: 10) {
+
+                HStack {
+                    Label(
+                        "Build the shared itinerary",
+                        systemImage: "calendar.badge.plus"
+                    )
+                    .font(.headline)
+
+                    Spacer()
+
+                    Image(systemName: "arrow.right")
+                }
+
+                Text(
+                    "Drag the activities your group accepted into the days and times that work best."
+                )
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+
+                Text("SCREEN 4")
+                    .font(.caption2.bold())
+                    .tracking(0.8)
+                    .foregroundStyle(coral)
+            }
+            .padding(20)
+            .frame(
+                maxWidth: .infinity,
+                alignment: .leading
             )
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
-
-            Text("SCREEN 4")
-                .font(.caption2.bold())
-                .tracking(0.8)
-                .foregroundStyle(coral)
-                .padding(.top, 4)
+            .background(
+                coral.opacity(0.08),
+                in: RoundedRectangle(cornerRadius: 20)
+            )
         }
-        .padding(20)
-        .frame(
-            maxWidth: .infinity,
-            alignment: .leading
-        )
-        .background(
-            coral.opacity(0.08),
-            in: RoundedRectangle(
-                cornerRadius: 20
-            )
-        )
+        .buttonStyle(.plain)
     }
 
     // MARK: - Error
