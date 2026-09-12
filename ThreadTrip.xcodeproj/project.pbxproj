@@ -8,7 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B00000000000000000000001 /* ThreadTripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* ThreadTripApp.swift */; };
+		B00000000000000000000007 /* GroupTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* GroupTrip.swift */; };
+		B00000000000000000000008 /* ActivityCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* ActivityCandidate.swift */; };
+		B00000000000000000000009 /* TripVotingRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000009 /* TripVotingRound.swift */; };
+		B0000000000000000000000A /* TravelActivityCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000A /* TravelActivityCatalogue.swift */; };
+		B0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift */; };
+		B0000000000000000000000F /* TripOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0000000000000000000000F /* TripOverviewViewModel.swift */; };
+		B00000000000000000000010 /* TripOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000010 /* TripOverviewView.swift */; };
+		B00000000000000000000011 /* japan_activities.json in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000011 /* japan_activities.json */; };
 		B00000000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000012 /* Assets.xcassets */; };
+		B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +32,16 @@
 
 /* Begin PBXFileReference section */
 		C00000000000000000000001 /* ThreadTripApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadTripApp.swift; sourceTree = "<group>"; };
+		C00000000000000000000007 /* GroupTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTrip.swift; sourceTree = "<group>"; };
+		C00000000000000000000008 /* ActivityCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCandidate.swift; sourceTree = "<group>"; };
+		C00000000000000000000009 /* TripVotingRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripVotingRound.swift; sourceTree = "<group>"; };
+		C0000000000000000000000A /* TravelActivityCatalogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelActivityCatalogue.swift; sourceTree = "<group>"; };
+		C0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGroupActivityDeckUseCase.swift; sourceTree = "<group>"; };
+		C0000000000000000000000F /* TripOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewViewModel.swift; sourceTree = "<group>"; };
+		C00000000000000000000010 /* TripOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripOverviewView.swift; sourceTree = "<group>"; };
+		C00000000000000000000011 /* japan_activities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = japan_activities.json; sourceTree = "<group>"; };
 		C00000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateGroupActivityDeckUseCaseTests.swift; sourceTree = "<group>"; };
 		C00000000000000000000014 /* ThreadTrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadTrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00000000000000000000015 /* ThreadTripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreadTripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -59,7 +77,15 @@
 			isa = PBXGroup;
 			children = (
 				C00000000000000000000001 /* ThreadTripApp.swift */,
+				C00000000000000000000010 /* TripOverviewView.swift */,
+				C0000000000000000000000F /* TripOverviewViewModel.swift */,
+				C00000000000000000000007 /* GroupTrip.swift */,
+				C00000000000000000000008 /* ActivityCandidate.swift */,
+				C00000000000000000000009 /* TripVotingRound.swift */,
+				C0000000000000000000000A /* TravelActivityCatalogue.swift */,
+				C0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift */,
 				C00000000000000000000012 /* Assets.xcassets */,
+				C00000000000000000000011 /* japan_activities.json */,
 			);
 			path = ThreadTrip;
 			sourceTree = "<group>";
@@ -67,6 +93,7 @@
 		D0000000000000000000000F /* ThreadTripTests */ = {
 			isa = PBXGroup;
 			children = (
+				C00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift */,
 			);
 			path = ThreadTripTests;
 			sourceTree = "<group>";
@@ -162,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00000000000000000000012 /* Assets.xcassets in Resources */,
+				B00000000000000000000011 /* japan_activities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00000000000000000000001 /* ThreadTripApp.swift in Sources */,
+				B00000000000000000000007 /* GroupTrip.swift in Sources */,
+				B00000000000000000000008 /* ActivityCandidate.swift in Sources */,
+				B00000000000000000000009 /* TripVotingRound.swift in Sources */,
+				B0000000000000000000000A /* TravelActivityCatalogue.swift in Sources */,
+				B0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift in Sources */,
+				B0000000000000000000000F /* TripOverviewViewModel.swift in Sources */,
+				B00000000000000000000010 /* TripOverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00000000000000000000013 /* GenerateGroupActivityDeckUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

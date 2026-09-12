@@ -1,0 +1,200 @@
+[
+  {
+    "id": "20000000-0000-0000-0000-000000000001",
+    "title": "Shibuya Sky",
+    "activityDescription": "Watch Tokyo shift from daylight to neon from an open-air observation deck.",
+    "city": "Tokyo",
+    "category": "sightseeing",
+    "estimatedCostPerTraveller": 32,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 120,
+    "symbolName": "building.2.crop.circle"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000002",
+    "title": "teamLab Planets",
+    "activityDescription": "Move through immersive digital installations combining light, water and sound.",
+    "city": "Tokyo",
+    "category": "culture",
+    "estimatedCostPerTraveller": 45,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 150,
+    "symbolName": "sparkles.rectangle.stack"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000003",
+    "title": "Tsukiji Food Walk",
+    "activityDescription": "Sample seafood, tamagoyaki and street snacks through the outer market.",
+    "city": "Tokyo",
+    "category": "food",
+    "estimatedCostPerTraveller": 85,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 180,
+    "symbolName": "fish.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000004",
+    "title": "Meiji Shrine Morning",
+    "activityDescription": "Walk through the forested shrine grounds before the busiest part of the day.",
+    "city": "Tokyo",
+    "category": "culture",
+    "estimatedCostPerTraveller": 0,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 90,
+    "symbolName": "torii.gate"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000005",
+    "title": "Akihabara Arcade Trail",
+    "activityDescription": "Explore retro arcades, electronics stores and character shops as a group.",
+    "city": "Tokyo",
+    "category": "shopping",
+    "estimatedCostPerTraveller": 40,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 180,
+    "symbolName": "gamecontroller.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000006",
+    "title": "Tokyo DisneySea",
+    "activityDescription": "Spend a full day exploring DisneySea's themed ports, rides and evening shows.",
+    "city": "Tokyo",
+    "category": "entertainment",
+    "estimatedCostPerTraveller": 95,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 660,
+    "symbolName": "water.waves"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000007",
+    "title": "Fushimi Inari Sunrise Walk",
+    "activityDescription": "Climb through the torii-gate trail early enough to avoid the main crowds.",
+    "city": "Kyoto",
+    "category": "sightseeing",
+    "estimatedCostPerTraveller": 0,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 180,
+    "symbolName": "figure.hiking"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000008",
+    "title": "Arashiyama Bamboo Grove",
+    "activityDescription": "Walk through the bamboo grove and continue toward the riverside district.",
+    "city": "Kyoto",
+    "category": "nature",
+    "estimatedCostPerTraveller": 0,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 150,
+    "symbolName": "leaf.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000009",
+    "title": "Kyoto Tea Ceremony",
+    "activityDescription": "Join a guided tea ceremony introducing the preparation, etiquette and meaning of matcha.",
+    "city": "Kyoto",
+    "category": "culture",
+    "estimatedCostPerTraveller": 65,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 90,
+    "symbolName": "cup.and.saucer.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000010",
+    "title": "Nishiki Market Tasting",
+    "activityDescription": "Share small tastings while exploring Kyoto's compact covered food market.",
+    "city": "Kyoto",
+    "category": "food",
+    "estimatedCostPerTraveller": 45,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 120,
+    "symbolName": "takeoutbag.and.cup.and.straw.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000011",
+    "title": "Kiyomizu-dera and Higashiyama",
+    "activityDescription": "Visit the hillside temple and explore the preserved streets below it.",
+    "city": "Kyoto",
+    "category": "sightseeing",
+    "estimatedCostPerTraveller": 12,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 210,
+    "symbolName": "building.columns.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000012",
+    "title": "Gion Evening Walk",
+    "activityDescription": "Follow a respectful guided route through Gion's historic streets after sunset.",
+    "city": "Kyoto",
+    "category": "culture",
+    "estimatedCostPerTraveller": 30,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 120,
+    "symbolName": "lantern.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000013",
+    "title": "Dotonbori Food Night",
+    "activityDescription": "Build a group tasting route around takoyaki, okonomiyaki and local desserts.",
+    "city": "Osaka",
+    "category": "food",
+    "estimatedCostPerTraveller": 55,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 180,
+    "symbolName": "fork.knife.circle.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000014",
+    "title": "Osaka Castle and Park",
+    "activityDescription": "Explore the castle museum and surrounding park with time for city views.",
+    "city": "Osaka",
+    "category": "culture",
+    "estimatedCostPerTraveller": 15,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 150,
+    "symbolName": "building.2.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000015",
+    "title": "Umeda Sky Building",
+    "activityDescription": "Take in Osaka's skyline from the rooftop observatory near sunset.",
+    "city": "Osaka",
+    "category": "sightseeing",
+    "estimatedCostPerTraveller": 22,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 90,
+    "symbolName": "sunset.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000016",
+    "title": "Universal Studios Japan",
+    "activityDescription": "Plan a full park day around the group's preferred rides and timed-entry areas.",
+    "city": "Osaka",
+    "category": "entertainment",
+    "estimatedCostPerTraveller": 130,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 660,
+    "symbolName": "ticket.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000017",
+    "title": "Shinsaibashi Shopping Walk",
+    "activityDescription": "Explore the covered shopping arcade and nearby vintage and streetwear stores.",
+    "city": "Osaka",
+    "category": "shopping",
+    "estimatedCostPerTraveller": 80,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 180,
+    "symbolName": "bag.fill"
+  },
+  {
+    "id": "20000000-0000-0000-0000-000000000018",
+    "title": "Minoh Falls Half-Day",
+    "activityDescription": "Take a relaxed forest walk to the waterfall on the northern edge of Osaka.",
+    "city": "Osaka",
+    "category": "nature",
+    "estimatedCostPerTraveller": 18,
+    "currencyCode": "AUD",
+    "suggestedDurationMinutes": 300,
+    "symbolName": "waterfall"
+  }
+]
