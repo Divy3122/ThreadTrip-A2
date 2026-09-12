@@ -141,7 +141,7 @@ extension GroupDecisionPolicy: GroupDecisionEvaluating {
 }
 
 
-/// Local six-traveller Japan trip used by the prototype.
+/// Local three-traveller Japan trip used by the prototype.
 enum JapanTripSample {
     static let japanTrip = GroupTrip(
         id: UUID(uuidString: "10000000-0000-0000-0000-000000000001")!,
@@ -151,12 +151,24 @@ enum JapanTripSample {
         startDate: makeDate(year: 2026, month: 12, day: 5),
         endDate: makeDate(year: 2026, month: 12, day: 22),
         members: [
-            TripMember(id: UUID(), displayName: "You", initials: "DP", isActive: true),
-            TripMember(id: UUID(), displayName: "Alex", initials: "AL", isActive: true),
-            TripMember(id: UUID(), displayName: "Maya", initials: "MY", isActive: true),
-            TripMember(id: UUID(), displayName: "Sam", initials: "SM", isActive: true),
-            TripMember(id: UUID(), displayName: "Noah", initials: "NO", isActive: true),
-            TripMember(id: UUID(), displayName: "Leah", initials: "LE", isActive: true)
+            TripMember(
+                id: UUID(),
+                displayName: "You",
+                initials: "DP",
+                isActive: true
+            ),
+            TripMember(
+                id: UUID(),
+                displayName: "Alex",
+                initials: "AL",
+                isActive: true
+            ),
+            TripMember(
+                id: UUID(),
+                displayName: "Maya",
+                initials: "MY",
+                isActive: true
+            )
         ],
         tripBudgetPerTraveller: 4_000,
         tasteProfile: TravelTasteProfile(
