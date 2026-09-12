@@ -2,12 +2,19 @@ import SwiftUI
 
 @main
 struct ThreadTripApp: App {
+    @StateObject private var tripOverview = TripOverviewViewModel(
+        trip: JapanTripSample.japanTrip,
+        generateGroupActivityDeck: GenerateGroupActivityDeckUseCase(
+            activityCatalogue: LocalJSONTravelActivityCatalogue()
+        )
+    )
+
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ContentUnavailableView("ThreadTrip", systemImage: "airplane", description: Text("Plan Japan together. Trip setup is the first milestone."))
-                    .navigationTitle("ThreadTrip")
+                TripOverviewView(viewModel: tripOverview)
             }
+            .tint(.indigo)
         }
     }
 }
