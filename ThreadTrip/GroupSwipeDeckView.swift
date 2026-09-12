@@ -2,8 +2,11 @@ import SwiftUI
 
 struct GroupSwipeDeckView: View {
     @ObservedObject var viewModel: GroupSwipeDeckViewModel
-    @GestureState private var dragOffset: CGSize = .zero
 
+    let decisionPolicy: GroupDecisionPolicy
+
+    @GestureState private var dragOffset: CGSize = .zero
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -69,12 +72,88 @@ struct GroupSwipeDeckView: View {
                     .background(.indigo.opacity(0.08), in: RoundedRectangle(cornerRadius: 16))
                 }
 
-                Text("\(viewModel.completedTravellerCount) of \(viewModel.deck.votingRound.eligibleMemberIDs.count) travellers finished")
-                    .font(.headline)
-                if viewModel.completedTravellerCount == viewModel.deck.votingRound.eligibleMemberIDs.count {
-                    Text("Everyone has voted. The Group Decision Dashboard is the next development milestone.")
+                Text(
+                    "\(viewModel.completedTravellerCount) of \(viewModel.deck.votingRound.eligibleMemberIDs.count) travellers finished"
+                )
+                .font(.headline)
+
+                if viewModel.completedTravellerCount
+                    == viewModel.deck.votingRound.eligibleMemberIDs.count {
+
+                    VStack(
+                        alignment: .leading,
+                        spacing: 12
+                    ) {
+
+                        Label(
+                            "Everyone has voted",
+                            systemImage:
+                                "checkmark.circle.fill"
+                        )
+                        .font(.headline)
+                        .foregroundStyle(.indigo)
+
+                        Text(
+                            "The complete group result is ready."
+                        )
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
+
+                        NavigationLink {
+
+                            GroupDecisionDashboardView(
+                                viewModel:
+                                    GroupDecisionDashboardViewModel(
+                                        deck:
+                                            viewModel.deck,
+                                        swipes:
+                                            viewModel.swipes,
+                                        decisionPolicy:
+                                            decisionPolicy
+                                    )
+                            )
+
+                        } label: {
+
+                            HStack(spacing: 12) {
+
+                                Image(
+                                    systemName:
+                                        "chart.bar.fill"
+                                )
+
+                                Text(
+                                    "View group decisions"
+                                )
+
+                                Spacer()
+
+                                Image(
+                                    systemName:
+                                        "arrow.right"
+                                )
+                            }
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .padding(18)
+                            .frame(
+                                maxWidth: .infinity,
+                                minHeight: 58
+                            )
+                            .background(
+                                Color(
+                                    red: 0.27,
+                                    green: 0.24,
+                                    blue: 0.57
+                                ),
+                                in:
+                                    RoundedRectangle(
+                                        cornerRadius: 18
+                                    )
+                            )
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
             }
             .padding(20)
