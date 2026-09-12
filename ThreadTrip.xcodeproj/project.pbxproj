@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45B4DCD63054E6FF00D566F6 /* BuildGroupDecisionDashboardUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCD53054E6FF00D566F6 /* BuildGroupDecisionDashboardUseCase.swift */; };
+		45B4DCD83054E73200D566F6 /* GroupDecisionDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCD73054E73200D566F6 /* GroupDecisionDashboardViewModel.swift */; };
+		45B4DCDA3054E74A00D566F6 /* GroupDecisionDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B4DCD93054E74300D566F6 /* GroupDecisionDashboardView.swift */; };
 		B00000000000000000000001 /* ThreadTripApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000001 /* ThreadTripApp.swift */; };
 		B00000000000000000000007 /* GroupTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000007 /* GroupTrip.swift */; };
 		B00000000000000000000008 /* ActivityCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000008 /* ActivityCandidate.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45B4DCD53054E6FF00D566F6 /* BuildGroupDecisionDashboardUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildGroupDecisionDashboardUseCase.swift; sourceTree = "<group>"; };
+		45B4DCD73054E73200D566F6 /* GroupDecisionDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDecisionDashboardViewModel.swift; sourceTree = "<group>"; };
+		45B4DCD93054E74300D566F6 /* GroupDecisionDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDecisionDashboardView.swift; sourceTree = "<group>"; };
 		C00000000000000000000001 /* ThreadTripApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadTripApp.swift; sourceTree = "<group>"; };
 		C00000000000000000000007 /* GroupTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTrip.swift; sourceTree = "<group>"; };
 		C00000000000000000000008 /* ActivityCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCandidate.swift; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				C00000000000000000000007 /* GroupTrip.swift */,
 				C00000000000000000000008 /* ActivityCandidate.swift */,
 				C00000000000000000000009 /* TripVotingRound.swift */,
+				45B4DCD53054E6FF00D566F6 /* BuildGroupDecisionDashboardUseCase.swift */,
+				45B4DCD73054E73200D566F6 /* GroupDecisionDashboardViewModel.swift */,
+				45B4DCD93054E74300D566F6 /* GroupDecisionDashboardView.swift */,
 				C0000000000000000000000A /* TravelActivityCatalogue.swift */,
 				C0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift */,
 				C00000000000000000000017 /* RecordActivitySwipeUseCase.swift */,
@@ -219,10 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B4DCDA3054E74A00D566F6 /* GroupDecisionDashboardView.swift in Sources */,
 				B00000000000000000000001 /* ThreadTripApp.swift in Sources */,
 				B00000000000000000000007 /* GroupTrip.swift in Sources */,
 				B00000000000000000000008 /* ActivityCandidate.swift in Sources */,
 				B00000000000000000000009 /* TripVotingRound.swift in Sources */,
+				45B4DCD83054E73200D566F6 /* GroupDecisionDashboardViewModel.swift in Sources */,
 				B0000000000000000000000A /* TravelActivityCatalogue.swift in Sources */,
 				B0000000000000000000000B /* GenerateGroupActivityDeckUseCase.swift in Sources */,
 				B0000000000000000000000F /* TripOverviewViewModel.swift in Sources */,
@@ -230,6 +241,7 @@
 				B00000000000000000000015 /* RecordActivitySwipeUseCase.swift in Sources */,
 				B00000000000000000000016 /* GroupSwipeDeckViewModel.swift in Sources */,
 				B00000000000000000000017 /* GroupSwipeDeckView.swift in Sources */,
+				45B4DCD63054E6FF00D566F6 /* BuildGroupDecisionDashboardUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

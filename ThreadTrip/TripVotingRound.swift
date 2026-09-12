@@ -47,3 +47,27 @@ struct ActivitySwipe: Identifiable, Codable, Equatable {
     let choice: ActivitySwipeChoice
     let recordedAt: Date
 }
+
+
+/// Represents the group's complete decision for one activity in a locked voting round.
+///
+/// Business Rules:
+/// - The result belongs to exactly one activity from the round's locked deck.
+/// - Yes and No counts include only eligible travellers from that voting round.
+/// - A result is created only after every eligible traveller has responded.
+/// - Acceptance is evaluated using the group's decision policy.
+struct GroupActivityDecision: Identifiable, Equatable {
+    let activity: ActivityCandidate
+    let yesVoteCount: Int
+    let noVoteCount: Int
+    let eligibleTravellerCount: Int
+    let isAccepted: Bool
+
+    var id: UUID { activity.id }
+
+    var yesSupportFraction: Double {
+        guard eligibleTravellerCount > 0 else { return 0 }
+
+        return Double(yesVoteCount) / Double(eligibleTravellerCount)
+    }
+}
